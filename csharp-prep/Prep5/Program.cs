@@ -4,10 +4,17 @@ class Program
 {
     static void Main(string[] args)
     {
-        static void DisplayMessage()
+        static void DisplayWelcome()
         {
-            Console.WriteLine("Bello!");
+            Console.WriteLine("Welcome to the Program!");
         }
-        DisplayMessage();
+        DisplayWelcome();
+
+        static void PromtUserName()
+        {
+            Console.Write("What is your name? ");
+            string userName = Console.ReadLine();
+        }
+        PromtUserName();
     }
 }
