@@ -16,7 +16,11 @@ class Program
         {
             Console.WriteLine(word);
         }
+
+        for (int i = 0; i < words.Count; i++)
+        {
+            Console.WriteLine(words[i]);
+        }
     }
     
-
 }
