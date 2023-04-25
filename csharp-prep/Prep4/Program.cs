@@ -17,6 +17,14 @@ class Program
                 numbers.Add(userNumber);
             }
         }
+
+        int sum = 0;
+        foreach (int number in numbers)
+        {
+            sum += number;
+        }
+
+        Console.WriteLine($"The sum is {sum}");
     }
     
 }
