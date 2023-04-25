@@ -1,9 +1,22 @@
-using System;
+using System.Collections.Generic;
 
 class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Prep4 World!");
+        List<int> numbers = new List<int>();
+        List<string> words = new List<string>();
+        words.Add("phone");
+        words.Add("keyboard");
+        words.Add("mouse");
+
+        Console.WriteLine($"There are {words.Count} words in the list.");
+
+        foreach (string word in words)
+        {
+            Console.WriteLine(word);
+        }
     }
+    
+
 }
