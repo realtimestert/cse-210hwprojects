@@ -19,6 +19,13 @@ class Program
             Console.WriteLine("\nPlease select one of the following choices: \n1. Write\n2. Display\n3. Load\n4. Save\n5. Quit" );
 
             int choice = int.Parse(Console.ReadLine());
+            switch (choice)
+            {
+                case 1:
+                    Console.WriteLine("Enter a prompt");
+                    string prompt = Console.ReadLine();
+                    
+            }
         }
     }
 }
