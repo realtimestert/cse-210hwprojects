@@ -1,10 +1,13 @@
 using System;
+using System.IO;
 
-namespace PromptGenerator
+class PromptGenerator
 {
-    public class Random;
-    {
-        Random.ReadLine("")
+    static void Main(string[] args)
+    {        
+        Console.WriteLine("Hello");    
     }
+
+
 }
 
