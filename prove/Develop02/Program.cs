@@ -1,8 +1,9 @@
 using System;
 using System.IO;
 
-class Program
-{
+namespace JournalPrompt{
+    class Program
+    {
     static void Main(string[] args)
     {
         string path = @"C:\Entries";
@@ -13,7 +14,7 @@ class Program
 
         List<Entry> entries = new List<Entry>();
 
-        Console.Write("Welcome to the Journal Program!");
+        Console.Write("Welcome to your personal Journal Program!");
 
         while (true)
         {
@@ -56,5 +57,6 @@ class Program
                     break;
             }
         }
+    }
     }
 }
