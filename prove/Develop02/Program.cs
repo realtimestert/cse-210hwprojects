@@ -13,12 +13,10 @@ class Program
         List<Entry> entries = new List<Entry>();
 
         Console.Write("Welcome to the Journal Program!");
-        
-        Console.WriteLine("Please select one of the following choices: ");
 
         while (true)
         {
-            Console.WriteLine("\nWrite: \n1" );
+            Console.WriteLine("\nPlease select one of the following choices: \n1. Write\n2. Display\n3. Load\n4. Save\n5. Quit" );
 
             int choice = int.Parse(Console.ReadLine());
         }
