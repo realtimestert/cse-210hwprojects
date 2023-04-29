@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 
 class Program
 {
@@ -25,6 +26,10 @@ class Program
                     Console.WriteLine("Enter a prompt");
                     string prompt = Console.ReadLine();
                     
+                    Console.WriteLine("Enter a response: ");
+                    string response = Console.ReadLine();
+
+                    Entry entry = new Entry(prompt, response, DateTime.Now);
             }
         }
     }
