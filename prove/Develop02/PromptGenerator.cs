@@ -4,7 +4,7 @@ namespace PromptGenerator
 {
     public class Random;
     {
-        
+        Random.ReadLine("")
     }
 }
 
