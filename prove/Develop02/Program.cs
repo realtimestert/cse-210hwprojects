@@ -4,59 +4,71 @@ using System.IO;
 namespace JournalPrompt{
     class Program
     {
-    static void Main(string[] args)
-    {
-        string path = @"C:\Entries";
-        if (!Directory.Exists(path))
+        static void Main(string[] args)
         {
-            Directory.CreateDirectory(path);
-        }
-
-        List<Entry> entries = new List<Entry>();
-
-        Console.Write("Welcome to your personal Journal Program!");
-
-        while (true)
-        {
-            Console.WriteLine("\nPlease select one of the following choices: \n1. Write\n2. Display\n3. Load\n4. Save\n5. Quit" );
-
-            int choice = int.Parse(Console.ReadLine());
-            switch (choice)
+            string path = @"C:\Users\evans\Documents\cse-210hwprojects";
+            if (!Directory.Exists(path))
             {
-                case 1:
-                    //Console.WriteLine("Enter a prompt");
-                    //string prompt = Console.ReadLine();
+                Directory.CreateDirectory(@"C:\Users\evans\Documents\cse-210hwprojects");
+            }
 
-                    PromptGenerator prompt = new PromptGenerator();
-                    
-                    Console.WriteLine("Enter a response: ");
-                    string response = Console.ReadLine();
+            List<Entry> entries = new List<Entry>();
 
-                    Entry entry = new Entry(response, DateTime.Now);
-                    entries.Add(entry);
+            Console.Write("Welcome to your personal Journal Program!");
 
-                    Console.WriteLine("Entry added.");
-                    break;
+            while (true)
+            {
+                Console.WriteLine("\nPlease select one of the following choices: \n1. Write\n2. Display\n3. Load\n4. Save\n5. Quit" );
 
-                case 2:
-                    Console.WriteLine("Hi");
-                    break;
+                int choice = int.Parse(Console.ReadLine());
+                switch (choice)
+                {
+                    case 1:
+                        //Console.WriteLine("Enter a prompt");
+                        //string prompt = Console.ReadLine();
 
-                case 3:
-                    break;
+                        PromptGenerator prompt = new PromptGenerator();
+                        
+                        Console.WriteLine("Enter a response: ");
+                        string response = Console.ReadLine();
 
-                case 4:
-                    break;
+                        Entry entry = new Entry(response, DateTime.Now);
+                        entries.Add(entry);
 
-                case 5:
-                    Console.WriteLine("Goodbye.");
-                    return;
+                        Console.WriteLine("Entry added.");
+                        break;
 
-                default:
-                    Console.WriteLine("Invalid choice");
-                    break;
+                    case 2:
+                        if (entries.Count ==0)
+                        {
+                            Console.WriteLine("Nothing here.");
+                            break;
+                        }
+                        
+                        Console.WriteLine($"There are {entries.Count} journal entries\n");
+
+                        foreach (Entry e in entries)
+                        {
+                            Console.WriteLine($"Date: {e.Date}\nResponse: {e.Response}");
+                        }
+
+                        break;
+
+                    case 3:
+                        break;
+
+                    case 4:
+                        break;
+
+                    case 5:
+                        Console.WriteLine("Goodbye.");
+                        return;
+
+                    default:
+                        Console.WriteLine("Invalid choice");
+                        break;
+                }
             }
         }
-    }
     }
 }
