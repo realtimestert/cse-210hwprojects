@@ -5,7 +5,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        string path = @"C:Users\evans\Documents\Entries";
+        string path = @"C:\Entries";
         if (!Directory.Exists(path))
         {
             Directory.CreateDirectory(path);
@@ -23,13 +23,15 @@ class Program
             switch (choice)
             {
                 case 1:
-                    Console.WriteLine("Enter a prompt");
-                    string prompt = Console.ReadLine();
+                    //Console.WriteLine("Enter a prompt");
+                    //string prompt = Console.ReadLine();
+
+                    PromptGenerator prompt = new PromptGenerator();
                     
                     Console.WriteLine("Enter a response: ");
                     string response = Console.ReadLine();
 
-                    Entry entry = new Entry(prompt, response, DateTime.Now);
+                    Entry entry = new Entry(response, DateTime.Now);
                     entries.Add(entry);
 
                     Console.WriteLine("Entry added.");
