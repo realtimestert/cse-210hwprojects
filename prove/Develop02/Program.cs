@@ -5,7 +5,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        string path = @"C:\Entries";
+        string path = @"C:Users\evans\Documents\Entries";
         if (!Directory.Exists(path))
         {
             Directory.CreateDirectory(path);
@@ -49,6 +49,9 @@ class Program
                     Console.WriteLine("Goodbye.");
                     return;
 
+                default:
+                    Console.WriteLine("Invalid choice");
+                    break;
             }
         }
     }
