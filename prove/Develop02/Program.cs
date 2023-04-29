@@ -5,7 +5,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        string path = @"C:\Users\evans\Documents";
+        string path = @"C:\Entries";
         if (!Directory.Exists(path))
         {
             Directory.CreateDirectory(path);
@@ -30,6 +30,25 @@ class Program
                     string response = Console.ReadLine();
 
                     Entry entry = new Entry(prompt, response, DateTime.Now);
+                    entries.Add(entry);
+
+                    Console.WriteLine("Entry added.");
+                    break;
+
+                case 2:
+                    Console.WriteLine("Hi");
+                    break;
+
+                case 3:
+                    break;
+
+                case 4:
+                    break;
+
+                case 5:
+                    Console.WriteLine("Goodbye.");
+                    return;
+
             }
         }
     }
