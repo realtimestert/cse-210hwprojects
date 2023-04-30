@@ -7,6 +7,7 @@ namespace JournalPrompt
     {
         static void Main(string[] args)
         {
+            Journal journal = new Journal(new PromptGenerator());
             string path = @"C:\Journal";
             if (!Directory.Exists(path))
             {
@@ -26,46 +27,19 @@ namespace JournalPrompt
                 switch (menuUserInput)
                 {
                     case 1:
-                        //Console.WriteLine("Enter a prompt");
-                        //string prompt = Console.ReadLine();
-
-                        PromptGenerator prompt = new PromptGenerator();
                         
-                        Console.WriteLine("Enter a response: ");
-                        string response = Console.ReadLine();
-
-                        Entry entry = new Entry(response, DateTime.Now);
-                        entries.Add(entry);
-
-                        Console.WriteLine("Entry added.");
                         break;
 
-                    case 2:
-                        if (entries.Count ==0)
-                        {
-                            Console.WriteLine("No entries found.");
-                            break;
-                        }
-
-                        else
-                        {
-                            foreach (Entry e in entries)
-                            {
-                                Console.WriteLine($"There are {entries.Count} journal entries\n");
-                                Console.WriteLine($"Date: {e.Date} - {e.Prompt}\nResponse: {e.Response}");
-                            }
-                        }                        
-
+                    case 2:                    
+                        journal.DisplayJournalEntries();
                         break;
 
                     case 3:
-                        Console.WriteLine("Enter the filename to load journal entries:");
                         
                         break;
 
                     case 4:
-                        Console.WriteLine("Enter a filename that you would like to save this journal to: ");
-
+                        
                         break;
 
                     case 5:
@@ -73,7 +47,7 @@ namespace JournalPrompt
                         return;
 
                     default:
-                        Console.WriteLine("Invalid choice");
+                        Console.WriteLine("Invalid choice. Please choose a number between 1 and 5.");
                         break;
                 }
             }

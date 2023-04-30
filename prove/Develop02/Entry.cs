@@ -2,15 +2,14 @@ using System;
 
 class Entry
 {
-    public string Prompt {get; set; }
-    public string Response {get; set; }
-    public DateTime Date {get; set; }
-
-    public Entry(string response, DateTime date)
+    public string Prompt;
+    public string Response;  
+    private string Date;
+    public Entry(string _date, string _prompt, string _response)
     {
-        //Prompt = prompt;
-        Response = response;
-        Date = date;
+        this.Prompt = _prompt;
+        this.Response = _response;
+        Date = _date;
     }
 
     public void DisplayEntry()
