@@ -27,7 +27,7 @@ namespace JournalPrompt
                 switch (menuUserInput)
                 {
                     case 1:
-                        
+                        journal.CreateJournalEntry();
                         break;
 
                     case 2:                    
@@ -35,11 +35,11 @@ namespace JournalPrompt
                         break;
 
                     case 3:
-                        
+                        journal.LoadFromCsv();
                         break;
 
                     case 4:
-                        
+                        journal.CreateJournalEntry();
                         break;
 
                     case 5:

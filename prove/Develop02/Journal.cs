@@ -4,7 +4,6 @@ using System.Collections.Generic;
 
 class Journal
 {
-    static void Main(string[] args){}
         public List<Entry> Entries;
         public PromptGenerator PromptGenerator;
         public Journal(PromptGenerator promptGenerator)
@@ -63,8 +62,28 @@ class Journal
                     file.WriteLine(entry.GetEntryAsCsv());
                 }
                 file.Close();
-                Console.WriteLine("Journal saved to " + filename + ".");
+                Console.WriteLine($"Journal saved to {filename}.");
                 return 1;
             }
+        }
+
+        public void LoadFromCsv()
+        {
+            Console.WriteLine("Please enter a filename to load to your journal: ");
+            string filename = Console.ReadLine();
+            System.IO.StreamReader file = new System.IO.StreamReader(filename);
+            string line;
+            Entries.Clear();
+            while ((line = file.ReadLine()) != null)
+            {
+                string[] values = line.Split("|");
+                if (values.Length ==3)
+                {
+                    Entry entry = new Entry(values[0], values[1], values[2]);
+                    Entries.Add(entry);
+                }
+            }
+            file.Close();
+            Console.WriteLine($"Journal loaded from {filename}.");
         }
 }
