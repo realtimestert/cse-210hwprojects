@@ -1,29 +1,46 @@
 using System;
 using System.IO;
 
-namespace JournalPrompt
+class Program
 {
-    class Program
-    {
         static void Main(string[] args)
         {
-            Journal journal = new Journal(new PromptGenerator());
-            string path = @"C:\Journal";
-            if (!Directory.Exists(path))
-            {
-                Directory.CreateDirectory(path);
-            }
+        Journal journal = new Journal(new PromptGenerator());
+        int menuUserInput = 0;
 
-            List<Entry> entries = new List<Entry>();
-            int menuUserInput = 0;
+        List<string> menu = new List<string>
+        {
+        "Please select one of the following choices:",
+        "1. Write",
+        "2. Display",
+        "3. Load",
+        "4. Save",
+        "5. Quit",
+        "What would you like to do?"
+        };
 
             Console.Write("Welcome to your personal Journal Program!");
 
             while (menuUserInput != 5)
             {
-                Console.WriteLine("\nPlease select one of the following choices: \n1. Write\n2. Display\n3. Load\n4. Save\n5. Quit" );
+                foreach (string menuItem in menu)
+                {
+                    Console.WriteLine(menuItem);
+                }
 
-                int choice = int.Parse(Console.ReadLine());
+                try
+                {
+                    menuUserInput = Convert.ToInt32(Console.ReadLine());
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Invalid input. Please enter a number.");
+                    continue;
+                }
+
+                //Console.WriteLine("\nPlease select one of the following choices: \n1. Write\n2. Display\n3. Load\n4. Save\n5. Quit" );
+
+                //int choice = int.Parse(Console.ReadLine());
                 switch (menuUserInput)
                 {
                     case 1:
@@ -39,17 +56,16 @@ namespace JournalPrompt
                         break;
 
                     case 4:
-                        journal.CreateJournalEntry();
+                        journal.SaveToCsv();
                         break;
 
                     case 5:
                         Console.WriteLine("Goodbye.");
-                        return;
+                        break;
 
                     default:
                         Console.WriteLine("Invalid choice. Please choose a number between 1 and 5.");
                         break;
-                }
             }
         }
     }
