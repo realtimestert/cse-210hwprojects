@@ -46,12 +46,25 @@ class Journal
             Console.WriteLine("Entry added to journal.");
         }
 
-        public interface SaveToCsv()
+        public int SaveToCsv()
         {
             if (Entries.Count == 0)
             {
                 Console.WriteLine("Nothing to save");
                 return 0;
+            }
+            else
+            {
+                Console.WriteLine("Please enter a filename to save the file:");
+                string filename = Console.ReadLine();
+                System.IO.StreamWriter file = new System.IO.StreamWriter(filename);
+                foreach (Entry entry in Entries)
+                {
+                    file.WriteLine(entry.GetEntryAsCsv());
+                }
+                file.Close();
+                Console.WriteLine("Journal saved to " + filename + ".");
+                return 1;
             }
         }
 }
