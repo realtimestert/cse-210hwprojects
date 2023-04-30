@@ -1,27 +1,29 @@
 using System;
 using System.IO;
 
-namespace JournalPrompt{
+namespace JournalPrompt
+{
     class Program
     {
         static void Main(string[] args)
         {
-            string path = @"C:\Users\evans\Documents\cse-210hwprojects";
+            string path = @"C:\Journal";
             if (!Directory.Exists(path))
             {
-                Directory.CreateDirectory(@"C:\Users\evans\Documents\cse-210hwprojects");
+                Directory.CreateDirectory(path);
             }
 
             List<Entry> entries = new List<Entry>();
+            int menuUserInput = 0;
 
             Console.Write("Welcome to your personal Journal Program!");
 
-            while (true)
+            while (menuUserInput != 5)
             {
                 Console.WriteLine("\nPlease select one of the following choices: \n1. Write\n2. Display\n3. Load\n4. Save\n5. Quit" );
 
                 int choice = int.Parse(Console.ReadLine());
-                switch (choice)
+                switch (menuUserInput)
                 {
                     case 1:
                         //Console.WriteLine("Enter a prompt");
@@ -41,23 +43,29 @@ namespace JournalPrompt{
                     case 2:
                         if (entries.Count ==0)
                         {
-                            Console.WriteLine("Nothing here.");
+                            Console.WriteLine("No entries found.");
                             break;
                         }
-                        
-                        Console.WriteLine($"There are {entries.Count} journal entries\n");
 
-                        foreach (Entry e in entries)
+                        else
                         {
-                            Console.WriteLine($"Date: {e.Date}\nResponse: {e.Response}");
-                        }
+                            foreach (Entry e in entries)
+                            {
+                                Console.WriteLine($"There are {entries.Count} journal entries\n");
+                                Console.WriteLine($"Date: {e.Date} - {e.Prompt}\nResponse: {e.Response}");
+                            }
+                        }                        
 
                         break;
 
                     case 3:
+                        Console.WriteLine("Enter the filename to load journal entries:");
+                        
                         break;
 
                     case 4:
+                        Console.WriteLine("Enter a filename that you would like to save this journal to: ");
+
                         break;
 
                     case 5:

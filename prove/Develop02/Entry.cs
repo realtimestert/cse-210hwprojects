@@ -12,4 +12,14 @@ class Entry
         Response = response;
         Date = date;
     }
+
+    public void DisplayEntry()
+    {
+        Console.WriteLine($"{Date}: {Prompt}\n{Response}");
+    }
+
+    public string GetEntryAsCsv()
+    {
+        return $"{Date}|{Prompt}|{Response}";
+    }
 }
