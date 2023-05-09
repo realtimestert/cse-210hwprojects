@@ -13,28 +13,30 @@ class Program
 
         static void DisplayWelcome()
         {
-            Console.WriteLine("Welcome to the Program!");
-        }       
+            Console.WriteLine("Welcome to the program!");
+        }
 
         static string PromptUserName()
-        {
-            Console.Write("What is your name? ");
-            string userName = Console.ReadLine();
-            return userName;
-        }   
+    {
+        Console.Write("Please enter your name: ");
+        string name = Console.ReadLine();
+
+        return name;
+    }
 
         static int PromptUserNumber()
         {
-            int number = -1;
             Console.Write("What is your favorite number? ");
-            number = int.Parse(Console.ReadLine());
+            int number = int.Parse(Console.ReadLine());
+
             return number;
         }
 
         static int SquareNumber(int number)
         {
-            int square = number*number;
+            int square = number * number;
             return square;
+            // squareroot of 42 is 1764
         }
 
         static void DisplayResult(string name, int square)
@@ -42,4 +44,5 @@ class Program
             Console.WriteLine($"{name}, the square of your number is {square}");
         }
     }
+
 }

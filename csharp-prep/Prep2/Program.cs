@@ -4,11 +4,31 @@ class Program
 {
     static void Main(string[] args)
     {
-        //Console.WriteLine("Hello Prep 2 World!");
+        Random random = new Random();
+        int randomNumber = random.Next();
+        int x = randomNumber;
+        int y = randomNumber;
+        int z = randomNumber;
+        if (x>y)
+        {
+            Console.WriteLine("X is greater than y");
+        }
+        else if (x>z)
+        {
+            Console.WriteLine("x is greater than z");
+        }
+        else
+        {
+            Console.WriteLine("Less than both");
+        }
+        Console.Write("What is your favorite number? ");
+        string userInput = Console.ReadLine();
+        int number = int.Parse(userInput);
+        Console.WriteLine($"Your favorite number is {number}");
 
         Console.Write("What is your grade percentage? ");
-        string answer = Console.ReadLine();
-        int percent = int.Parse(answer);
+        string grade = Console.ReadLine();
+        int percent = int.Parse(grade);
 
         string letter = "";
 
@@ -16,37 +36,32 @@ class Program
         {
             letter = "A";
         }
-
         else if (percent >= 80)
         {
             letter = "B";
         }
-
         else if (percent >= 70)
         {
             letter = "C";
         }
-
         else if (percent >= 60)
         {
             letter = "D";
         }
-
         else
         {
             letter = "F";
         }
 
-        Console.WriteLine($"Your grade is {letter}");
+        Console.WriteLine($"You have a {letter}.");
 
         if (percent >= 70)
         {
-            Console.WriteLine("You Passed!");
+            Console.WriteLine("You passed!");
         }
-
         else
         {
-            Console.WriteLine("Too bad, so sad");
+            Console.WriteLine("You failed.");
         }
     }
 }
