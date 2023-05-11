@@ -22,8 +22,14 @@ public class Reference
 
     public string GetReference()
     {
-        book = "Genesis";
-        return book;
+        if (verseEnd == "")
+        {
+            return $"{book} {chapter}: {verseStart}";
+        }
+        else
+        {
+            return $"{book} {chapter}: {verseStart}-{verseEnd}";
+        }
         //Placeholder stuff
     }
 }
