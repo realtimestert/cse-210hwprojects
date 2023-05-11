@@ -1,6 +1,6 @@
 using System;
 
-class Word
+public class Word
 {
     public string word;
     private bool isHidden = true;
