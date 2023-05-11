@@ -2,27 +2,25 @@ using System;
 
 class Word
 {
-    public string words;
+    public string word;
     private bool isHidden = true;
     
-    public Word (string word)
+    public Word (string _word)
     {
-        //placeholder
+        word = _word;
     }
 
-    private bool GetIsHidden()
+    public bool GetIsHidden()
     {
-        while (isHidden == true);
         return isHidden;
-        //placeholder
     }
 
-    public void SetIsHidden (bool _ishidden)
+    public void SetIsHidden (bool _isHidden)
     {
-        //Placeholder
+        isHidden = _isHidden;
     }
 
-    public bool GetWord()
+    public string GetWord()
     {
         return word;
     }
