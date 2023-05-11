@@ -14,7 +14,12 @@ public class Scripture
     
     private void CreateWords(string _scriptureText)
     {
-
+        List <string> allWords = _scriptureText.Split(" ").ToList();
+        foreach (string item in allWords)
+        {
+            Word word = new Word(item);
+            words.Add(word);
+        }
     }
 
     public string GetScripture()
