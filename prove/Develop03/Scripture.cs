@@ -2,20 +2,35 @@ using System;
 
 class Scripture
 {
-    public string Reference;
-    public GetScripture()
-    {
-        Writeit = Console.WriteLine("I will go and do");
-        return Writeit;
-    }
-    public string words;
+    private List<Word> words;
+    private Reference scriptureReference;
 
-    bool HasWordsLeft = true;
-
-    static void Main(string[] args)
+    public Scripture (Reference _scriptureReference, string _scriptureText)
     {
-        GetScripture Nephi = new GetScripture();
-        Console.WriteLine(Nephi.GetScripture);
+
     }
     
+    private void CreateWords(string _scriptureText)
+    {
+
+    }
+
+    public string GetScripture()
+    {
+        string scriptureText = "";
+        return scriptureText;
+        //placeholder
+    }
+
+    public bool HasWordsLeft()
+    {
+        bool scriptureReference = false;
+        return scriptureReference;
+        //more placeholder
+    }
+
+    public void RemoveWords()
+    {
+        //placeholder
+    }
 }

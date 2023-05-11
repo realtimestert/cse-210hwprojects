@@ -1,10 +1,29 @@
 using System;
 
-class Reference
+public class Reference
 {
-    public string book;
-    public string chapter;
-    public string verseStart;
-    public string verseEnd;
+    private string book, chapter, verseStart, verseEnd;
     
+    public Reference (string _book, string _chapter, string _verseStart)
+    {
+        book = _book;
+        chapter = _chapter;
+        verseStart = _verseStart;
+        verseEnd = "";       
+    }
+
+    public Reference (string _book, string _chapter, string _verseStart, string _verseEnd)
+    {
+        book = _book;
+        chapter = _chapter;
+        verseStart = _verseStart;
+        verseEnd = _verseEnd;  
+    }
+
+    public string GetReference()
+    {
+        book = "Genesis";
+        return book;
+        //Placeholder stuff
+    }
 }
