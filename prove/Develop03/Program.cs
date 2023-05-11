@@ -24,6 +24,6 @@ class Program
             scripture.RemoveWords();
         }
 
-        Console.WriteLine(scripture.GetScripture());
+        Console.WriteLine("You got it!");
     }
 }
