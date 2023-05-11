@@ -13,10 +13,6 @@ public class Fraction
 
     public Fraction(int wholeNumber)
     {
-
-        //Console.WriteLine("Please give a whole number: ");
-        //int top = Convert.ToInt32(Console.ReadLine());
-        //Console.WriteLine(top); 
         _top = wholeNumber;
         _bottom = 1;
     }
@@ -24,6 +20,26 @@ public class Fraction
     public Fraction(int top, int bottom)
     {
         _top = top;
+        _bottom = bottom;
+    }
+
+    public int GetTop()
+    {
+        return _top;
+    }
+
+    public void SetTop(int top)
+    {
+        _top = top;
+    }
+
+    public int GetBottom()
+    {
+        return _bottom;
+    }
+
+    public void SetBottom(int bottom)
+    {
         _bottom = bottom;
     }
 
