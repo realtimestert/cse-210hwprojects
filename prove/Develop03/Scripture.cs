@@ -1,9 +1,10 @@
 using System;
 
-public class Scripture
+class Scripture
 {
     private List<Word> words;
     private Reference scriptureReference;
+
 
     public Scripture (Reference _scriptureReference, string _scriptureText)
     {
@@ -14,7 +15,7 @@ public class Scripture
     
     private void CreateWords(string _scriptureText)
     {
-        List <string> allWords = _scriptureText.Split(" ").ToList();
+        List<string> allWords = _scriptureText.Split(' ').ToList();
         foreach (string item in allWords)
         {
             Word word = new Word(item);
@@ -25,13 +26,24 @@ public class Scripture
     public string GetScripture()
     {
         string scriptureText = "";
-        return scriptureText;
-        //placeholder
+        foreach (Word word in words)
+        {
+            if (word.GetIsHidden() == false)
+            {
+                scriptureText += word.GetWord() + " ";
+            }
+            else
+            {
+                scriptureText += new string('_', word.GetWord().Length) + " ";
+            }
+        }
+        return ($"{scriptureReference.GetReference()} {scriptureText}");
     }
 
     public bool HasWordsLeft()
     {
         bool returnValue = false;
+
         foreach (Word word in words)
         {
             if (word.GetIsHidden() == false)
@@ -39,12 +51,23 @@ public class Scripture
                 returnValue = true;
             }
         }
+
         return returnValue;
-        //more placeholder
     }
 
     public void RemoveWords()
     {
-        //placeholder
+        int numWordsToRemove = new Random().Next(2,4);
+        int wordsRemoved = 0;
+
+        do
+        {
+            int rndIndex = new Random().Next(0, words.Count());
+            if (words[rndIndex].GetIsHidden() == false)
+            {
+                words[rndIndex].SetIsHidden(true);
+                wordsRemoved++;
+            }
+        }while (wordsRemoved != numWordsToRemove && this.HasWordsLeft());
     }
 }

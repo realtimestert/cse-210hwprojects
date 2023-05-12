@@ -4,12 +4,10 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Develop03 World!");
+        //Console.WriteLine("Hello Develop03 World!");
 
-        Reference scriptureReference = new Reference("Genesis", "1", "1", "2");
-        Scripture scripture = new Scripture(scriptureReference, "In the beginning God created the heaven and the earth." +
-        "And the earth was without form, and void; and darkness was upon the face of the deep." + 
-        "And the Spirit of God moved upon the face of the waters");
+        Reference scriptureReference = new Reference("Genesis", "1","1");
+        Scripture scripture = new Scripture(scriptureReference, "In the beginning God created the heaven and the earth");
 
         string userInput = "";
 
@@ -19,11 +17,11 @@ class Program
             Console.WriteLine(scripture.GetScripture());
             Console.WriteLine();
 
-            Console.Write("Press 'Enter' to continue or press 'quit' to close out the program");
+            Console.Write("Type 'Enter' to continue or type 'quit' to close out the program. ");
             userInput = Console.ReadLine();
             scripture.RemoveWords();
         }
 
-        Console.WriteLine("You got it!");
+        Console.WriteLine("Good job with memorizing the scripture!");
     }
 }

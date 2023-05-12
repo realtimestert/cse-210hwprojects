@@ -1,9 +1,9 @@
 using System;
 
-public class Word
+class Word
 {
     public string word;
-    private bool isHidden = true;
+    private bool isHidden;
     
     public Word (string _word)
     {
