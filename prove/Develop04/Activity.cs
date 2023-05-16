@@ -20,7 +20,7 @@ public class Activity
         string userInput = Console.ReadLine();
         activityTime = int.Parse(userInput);
 
-        Console.WriteLine($"Thank you for chooseing an option, your activity will begin soon.");
+        Console.WriteLine($"Thank you for choosing an option, your activity will begin soon.");
         LoadingDots();
     }
 
@@ -41,18 +41,24 @@ public class Activity
         LoadingDots();
     }
 
-    public void Spinner()
+    public void Spinner(int seconds)
     {
-        List<string> animationStrings = new List<string>();
-        animationStrings.Add(Emoji.Raised_Hand);
-        animationStrings.Add(Emoji.V);
-        animationStrings.Add(Emoji.Fist);
+        int i = 0;
 
-        foreach (String s in animationStrings)
+        while (i <= seconds)
         {
-            Console.Write(s);
-            Thread.Sleep(1000);
-            Console.Write("\b \b");
+            Console.Write(Emoji.Raised_Hand);
+            Thread.Sleep(500);
+            i += 1;
+            Console.Write("\b");
+            Console.Write(Emoji.V);
+            Thread.Sleep(500);
+            i += 1;
+            Console.Write("\b");
+            Console.Write(Emoji.Fist);
+            Thread.Sleep(500);
+            i += 1;
+            Console.Write("\b");
         }
     }
 

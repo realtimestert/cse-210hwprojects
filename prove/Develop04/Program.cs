@@ -4,12 +4,6 @@ class Program
 {
     static void Main(string[] args)
     {
-        //Breathing breathing = new Breathing("Breathing Activity", "This activity will help you relax by walking your through breathing in and out slowly. Clear your mind and focus on your breathing.", 1);
-        //Reflection reflection = new Reflection("Reflection Activity", "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.", 1);
-        //Listing listing = new Listing("Listing Activity", "This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area.", 1);
-
-        //Console.WriteLine("Wellness program.");
-
         static void DisplayMenu()
         {
             Console.Clear();
@@ -44,14 +38,14 @@ class Program
                 case 2:
                     Console.Clear();
                     Reflection reflection1 = new Reflection(0, "Reflection Activity", "his activity will help you relax by walking your through breathing in and out slowly. Clear your mind and focus on your breathing.");
-                    reflection1.RunReflection(20);
+                    reflection1.RunReflection(60);
                     break;
 
                 //Listing Activity
                 case 3:
                     Console.Clear();
-                    Listing listing = new Listing("Listing Activity", "This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area.", 20);
-                    listing.RunListing(20);
+                    Listing listing = new Listing("Listing Activity", "This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area.", 30);
+                    listing.RunListing(30);
                     break;
 
                 case 4:
@@ -61,6 +55,7 @@ class Program
 
                 default:
                     Console.WriteLine("Invalid input. Choose a number between 1 and 4 to continue: ");
+                    Console.Clear();
                     break;
             }
         }

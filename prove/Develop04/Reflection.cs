@@ -13,45 +13,36 @@ public class Reflection : Activity
             "Think of a time when you helped someone in need.",
             "Think of a time when you did something truly selfless."
         };
-        List<string> questions = new List<string>
-        {
-            "Why was this experience meaningful to you?",
-            "Have you ever done anything like this before?",
-            "How did you get started?",
-            "How did you feel when it was complete?",
-            "What made this time different than other times when you were not as successful?",
-            "What is your favorite thing about this experience?",
-            "What could you learn from this experience that applies to other situations?",
-            "What did you learn about yourself through this experience?",
-            "How can you keep this experience in mind in the future?"
-        };
 
-        public void RandomReflectionPrompt()
+        public void disPlayDescription()
         {
-            Random rand = new Random();
-            int index = rand.Next(reflectionPrompts.Count);
-            string prompt = reflectionPrompts[index];
-            Console.WriteLine($"{prompt}");
+            Console.WriteLine("This activity is meant ot have you reflect on the good things you have done in the world. ");
+
         }
-
-        public void RandomQuestion()
+        public string SelectPrompt()
         {
-            Random rand = new Random();
-            int index = rand.Next(questions.Count);
-            string question = questions[index];
-            Console.WriteLine($"{question}");
+            Random randomGenerator = new Random();
+            int promptIndex = randomGenerator.Next(1,reflectionPrompts.Count);
+            string selectedPrompt = reflectionPrompts[promptIndex];
+            return selectedPrompt;
         }
-
         public void RunReflection(int seconds)
         {
-            RandomReflectionPrompt();
-            DateTime startTime = DateTime.Now;
-            DateTime endTime = ActivityLength();
-            while (startTime < endTime)
+            Console.WriteLine("Here is a prompt for your consideration. \n");
+            Console.WriteLine(SelectPrompt());
+            Console.WriteLine("When you are ready, press enter to continue.");
+            Console.ReadLine();
+            Console.WriteLine("Now is the time for reflection: ");
+            
+            for (int i = 0; i >= 4; i--)
             {
-                Spinner();
-                RandomQuestion();
+                Console.Write($"You may begin in: {i}");
+                Thread.Sleep(1000);
+                Console.Write("\b\b\b\b\b\b\b\b\b\b\b\b");
             }
+
+            Console.Clear();
+            int questionDuration = seconds/2;
             EndingMessage();
         }
 }

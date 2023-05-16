@@ -6,7 +6,7 @@ public class Listing : Activity
     {
     //PlaceHolder
     }
-    List<string> listingPrompt = new List<string>();
+    //List<string> listingPrompt = new List<string>();
     List<string> userListing = new List<string>
     {
         "Who are people that you appreciate? ",
@@ -19,26 +19,35 @@ public class Listing : Activity
     public string RandomListingPrompt()
     {
         Random rand = new Random();
-        int index = rand.Next(listingPrompt.Count);
-        string listPrompt = listingPrompt[index];
+        int randomindex = rand.Next(userListing.Count);
+        string listPrompt = userListing[randomindex];
         return listPrompt;
     }
 
     public void RunListing(int seconds)
     {
-        StartingMessage();
-        DateTime startTime = DateTime.Now;
-        DateTime endTime = ActivityLength();
-        RandomListingPrompt();
-        CountDown();
-        int counter = 0;
-        while (startTime < endTime)
+        Console.WriteLine("Write down as many responses as you can: ");
+        Console.WriteLine(RandomListingPrompt());
+        
+        for (int i = 0; i <= 3; i++)
         {
-            Console.Write(">");
-            string input = Console.ReadLine();
-            userListing.Add(input);
-            startTime = DateTime.Now;
-            counter += 1;
+            Console.Write($"You may begin in {i} seconds\n");
+            Thread.Sleep(1000);
+            Console.Write("honk... mi mi mi mi mi...");
+            Console.Clear();
+        }
+        Console.WriteLine();
+        DateTime startTime = DateTime.Now;
+        DateTime futureTime = startTime.AddSeconds(seconds);
+        DateTime currentTime = DateTime.Now;
+        int counter = 0;
+
+        while (currentTime < futureTime)
+        {
+            Console.Write("*");
+            Console.ReadLine();
+            currentTime = DateTime.Now;
+            counter +=1;
         }
         Console.WriteLine($"You made a list of {userListing.Count} things.");
         EndingMessage();
