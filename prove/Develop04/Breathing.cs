@@ -2,9 +2,14 @@ using System;
 
 public class Breathing : Activity
 {
+    //public Breathing(int activityTime, string activityName) : base(activityTime, activityName)
+    public Breathing(int activityTime, string activityName, string activityDescription) : base (activityName, activityDescription, activityTime)
+    {
+        //Null?
+    }
     public void BreathIn()
     {
-        Console.Write($"\nBreath in...");
+        Console.Write($"Breath in...");
         CountDown();
     }
 
@@ -14,9 +19,19 @@ public class Breathing : Activity
         CountDown();
     }
 
-    public void RunBreathing()
+    public void RunBreathing(int seconds)
     {
-        BreathIn();
-        BreathOut();
+        StartingMessage();
+        DateTime startTime = DateTime.Now;
+        DateTime endTime = ActivityLength();
+        while (startTime < endTime)
+        {
+            BreathIn();
+            startTime = DateTime.Now;
+            BreathOut();
+            startTime = DateTime.Now;
+        }
+        EndingMessage();
+        Console.Clear();
     }
 }
