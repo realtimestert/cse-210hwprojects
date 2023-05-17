@@ -30,15 +30,15 @@ class Program
                 //Breathing Activity
                 case 1:
                     Console.Clear();
-                    Breathing breathing = new Breathing(0, "This activity will help you relax by walking your through breathing in and out slowly. Clear your mind and focus on your breathing.", "Breathing Activity");
+                    Breathing breathing = new Breathing(20, "This activity will help you relax by walking your through breathing in and out slowly. Clear your mind and focus on your breathing.", "Breathing Activity");
                     breathing.RunBreathing(20);
                     break;
 
                 // Reflection Activity
                 case 2:
                     Console.Clear();
-                    Reflection reflection1 = new Reflection(0, "Reflection Activity", "his activity will help you relax by walking your through breathing in and out slowly. Clear your mind and focus on your breathing.");
-                    reflection1.RunReflection(60);
+                    Reflection reflection1 = new Reflection(5, "Reflection Activity", "his activity will help you relax by walking your through breathing in and out slowly. Clear your mind and focus on your breathing.");
+                    reflection1.RunReflection();
                     break;
 
                 //Listing Activity

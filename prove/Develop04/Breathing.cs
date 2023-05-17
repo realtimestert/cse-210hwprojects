@@ -11,12 +11,14 @@ public class Breathing : Activity
     {
         Console.Write($"Breath in...");
         CountDown();
+        Console.Clear();
     }
 
     public void BreathOut()
     {
         Console.Write($"\nBreathe out....");
         CountDown();
+        Console.Clear();
     }
 
     public void RunBreathing(int seconds)

@@ -26,7 +26,7 @@ public class Reflection : Activity
             string selectedPrompt = reflectionPrompts[promptIndex];
             return selectedPrompt;
         }
-        public void RunReflection(int seconds)
+        public void RunReflection()
         {
             Console.WriteLine("Here is a prompt for your consideration. \n");
             Console.WriteLine(SelectPrompt());
@@ -34,15 +34,33 @@ public class Reflection : Activity
             Console.ReadLine();
             Console.WriteLine("Now is the time for reflection: ");
             
-            for (int i = 0; i >= 4; i--)
+            
+            for (int i = 0; i <= 3; i++)
             {
                 Console.Write($"You may begin in: {i}");
                 Thread.Sleep(1000);
                 Console.Write("\b\b\b\b\b\b\b\b\b\b\b\b");
+                Console.Clear();
+            }
+
+            Console.WriteLine();
+            DateTime startTime = DateTime.Now;
+            DateTime futureTime = startTime.AddSeconds(activityTime);
+            DateTime currentTime = DateTime.Now;
+            int counter = 0;
+
+            //make a new method here to have the user type in a response in 30 seconds
+
+            while (currentTime < futureTime)
+            {
+                Console.Write("*");
+                Console.ReadLine();
+                currentTime = DateTime.Now;
+                counter +=1;
             }
 
             Console.Clear();
-            int questionDuration = seconds/2;
+            int questionDuration = activityTime/2;
             EndingMessage();
         }
 }
