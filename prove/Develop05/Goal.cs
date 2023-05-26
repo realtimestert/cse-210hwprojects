@@ -10,42 +10,29 @@ public abstract class Goal
 
     List<string> goals = new List<string>();
 
-    abstract class Goal
+
+    public Goal(string _goalName, int _goalPoints, string _goalDescription, int _setGoalValues)
     {
-        private _goalName;
-        private _goalPoints;
-        private _goalDescription;
-        private _setGoalValues;
 
-        List<string>goals = new List<string>();
+    }
 
-        public Goal(string _goalName, int _goalPoints, string _goalDescription, int _setGoalValues)
+        public string GetPoints(int goalPoints)
+    {
+        return $"You have {goalPoints} points";
+    }
+
+    public void SetGoalPoints()
+    {
+        int _shownGoalPoints = shownGoalPoints;
+    }
+
+    public void DisplayGoals()
+    {
+        foreach (string goal in goals)
         {
-
+            Console.WriteLine(goal);
         }
-
-            public string GetPoints(int goalPoints)
-        {
-            return $"You have {goalPoints} points";
-        }
-
-        public void SetGoalPoints()
-        {
-            int _shownGoalPoints = shownGoalPoints;
-        }
-
-        public void DisplayGoals()
-        {
-            foreach (string goal in goals)
-            {
-                Console.WriteLine(goal);
-            }
         }
     }
     
-
-    public int SaveGoals()
-    {
-        return 1;
-    }    
 }
