@@ -1,11 +1,13 @@
 public class Video
 {
-    public string _title;
-    public string _author;
-    public int _length;
+    public string Title {get; set;}
+    public string Author {get; set;}
+    public int Length {get; set;}
+    public List<Comment> Comments {get; set;}
 
-    public void DisplayVideo()
+    public int NUmberOfComments()
     {
-        Console.WriteLine($"{_title} \nBy {_author} \n{_length} seconds");
+        return Comments.Count;
     }
+
 }
