@@ -5,16 +5,31 @@ class Program
 {
     static void Main(string[] args)
     {
-        Video video1 = new Video();
-        Comment comment1 = new Comment();
-        video1.Title = "Epic Video";
-        video1.Author = "Some Guy";
-        video1.Length = 90;
-        comment1.UserComment = "realtime";
-        comment1.CommentText = "parallel universes";
+        List<Video> videos = new List<Video>();
+        Video video1 = new Video
+        {
+            Title = "SM64 - Watch for Rolling Rocks - 0.5x A Presses (Commentated)",
+            Author = "pannenkoek2012",
+            Length = 90,
+            Comments = new List<Comment>()
+        };
 
-        Video video2 = new Video();
-        Comment comment2 = new Comment();
+        video1.Comments.Add(new Comment {UserName = "realtime", CommentText = "parallel universes"});
+        video1.Comments.Add(new Comment {UserName = "@Mswordx23", CommentText = "'Now, you're probably wondering what I'm gonna need all this speed for. After all, I do build up speed for 12 hours. But to answer that, we need to talk about parallel universes, and if you thought my other tangents were complicated, just you wait.' Such an iconic line."});
+        video1.Comments.Add(new Comment {UserName = "PointCrow", CommentText = "fantastic video. iconic"});
 
+        Video video2 = new Video
+        {
+            Title = "C# in 100 Seconds",
+            Author = "FireShip",
+            Length = 100,
+            Comments = new List<Comment>()
+        };
+
+        video2.Comments.Add(new Comment {UserName = "chadkrause4694", CommentText = "C# is one of my favorite languages. The ease of multithreading/nonblocking calls makes it easy to squeeze a ton of performance out of it"});
+        video2.Comments.Add(new Comment {UserName = "jawadsrour8490", CommentText = "great content, as always!"});
+        video2.Comments.Add(new Comment {UserName = "Tsunami14", CommentText = "Glad it finally got featured"});
+
+        
     }
 }

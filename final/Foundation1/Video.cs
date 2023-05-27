@@ -5,7 +5,7 @@ public class Video
     public int Length {get; set;}
     public List<Comment> Comments {get; set;}
 
-    public int NUmberOfComments()
+    public int NumberOfComments()
     {
         return Comments.Count;
     }
