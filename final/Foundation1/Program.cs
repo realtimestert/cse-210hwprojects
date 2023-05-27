@@ -15,7 +15,7 @@ class Program
         };
 
         video1.Comments.Add(new Comment {UserName = "realtime", CommentText = "parallel universes"});
-        video1.Comments.Add(new Comment {UserName = "@Mswordx23", CommentText = "'Now, you're probably wondering what I'm gonna need all this speed for. After all, I do build up speed for 12 hours. But to answer that, we need to talk about parallel universes, and if you thought my other tangents were complicated, just you wait.' Such an iconic line."});
+        video1.Comments.Add(new Comment {UserName = "Mswordx23", CommentText = "'Now, you're probably wondering what I'm gonna need all this speed for. After all, I do build up speed for 12 hours. But to answer that, we need to talk about parallel universes, and if you thought my other tangents were complicated, just you wait.' Such an iconic line."});
         video1.Comments.Add(new Comment {UserName = "PointCrow", CommentText = "fantastic video. iconic"});
 
         Video video2 = new Video
@@ -30,6 +30,25 @@ class Program
         video2.Comments.Add(new Comment {UserName = "jawadsrour8490", CommentText = "great content, as always!"});
         video2.Comments.Add(new Comment {UserName = "Tsunami14", CommentText = "Glad it finally got featured"});
 
-        
+        videos.Add(video1);
+        videos.Add(video2);
+
+        foreach (var video in videos)
+        {
+            Console.WriteLine("Title: " + video.Title);
+            Console.WriteLine("Author: " + video.Author);
+            Console.WriteLine("Length: " + video.Length + " seconds");
+            Console.WriteLine("# of comments: " + video.NumberOfComments());
+            Console.WriteLine("Comments: ");
+
+            foreach (var comment in video.Comments)
+            {
+                Console.WriteLine(comment.UserName + ": " + comment.CommentText);
+            }
+
+            Console.WriteLine();
+        }
+        Console.ReadLine();
+        Console.Clear();
     }
 }
