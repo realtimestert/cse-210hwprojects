@@ -1,22 +1,56 @@
 public class Order
 {
-    List<string> products = new List<string>();
-    private string customer;
-    private int UsShippingCost = 5;
-    private int worldShippingCost = 35;
+    private List<Product> products;
+    private Customer customer;
+    private decimal ShippingCost = 0.0m;
 
-    public void CreateShippingLabel()
+    public Order(Customer customer, List<Product> products)
     {
+        this.customer = customer;
+        this.products = products;
 
+        if (customer.Address.IsInUSA())
+        {
+            ShippingCost = 5.0m;
+        }
+
+        else
+        {
+            ShippingCost = 35.0m;
+        }
+    }
+    public decimal GetTotalCost()
+    {
+        decimal totalCost = 0.0m;
+
+        foreach (Product product in products)
+        {
+            totalCost += product.Price * product.Quantity;
+        }
+        totalCost += ShippingCost;
+        return totalCost;
+    }
+    public string CreateShippingLabel()
+    {
+        string label = "";
+
+        foreach (Product product in products)
+        {
+            label = customer.Name + "\n" +
+            customer.Address.ToString() + "\n";
+        }
+        return label;
     }
 
-    public void OrderCost()
+    public string CreatePackingLabel()
     {
+        string label = "";
+        foreach (Product product in products)
+        {
+            label += "Product name: " + product.Name + "\n" +
+            "Product ID: " + product.ProductID + "\n";
 
-    }
-
-    public void CalculateTotalPrice()
-    {
-        
+        }
+        return label;
     }
 }

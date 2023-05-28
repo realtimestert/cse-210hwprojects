@@ -1,10 +1,23 @@
 public class Customer
 {
-    string _name;
-    string _address;
-
-    public bool IsInUSA(address)
+    public string Name 
     {
-        false;
+        get;
     }
+    public Address Address
+    {
+        get;
+    }
+
+    public Customer(string name, Address address)
+    {
+        Name = name;
+        Address = address;
+    }
+    public bool IsInUSA()
+    {
+        return Address.IsInUSA();
+    }
+
+
 }

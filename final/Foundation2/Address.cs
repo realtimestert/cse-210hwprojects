@@ -1,17 +1,20 @@
 public class Address
 {
-    string _streetAddress;
-    string _city;
-    string _stateOrProvince;
-    string _country;
+    string StreetAddress {get; set;}
+    string City {get; set;}
+    string StateOrProvince {get; set;}
+    string Country {get; set;}
 
-    bool GetInUSA
+    public Address(string streetAddress, string city, string stateOrProvince, string country)
     {
-        false;
+        StreetAddress = streetAddress;
+        City = city;
+        StateOrProvince = stateOrProvince;
+        Country = country;
+    }
+    public bool IsInUSA()
+    {
+        return Country.ToLower() == "usa" || Country.ToLower() == "united states";
     }
 
-    string FormatAddress
-    {
-
-    }
 }

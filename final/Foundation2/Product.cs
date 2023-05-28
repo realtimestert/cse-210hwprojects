@@ -1,32 +1,15 @@
 public class Product
 {
-    string _name;
-    string _productID;
-    string _price;
-    int _quantity;
+    public string Name {get; set;}
+    public string ProductID {get; set;}
+    public decimal Price {get; set;}
+    public int Quantity {get; set;}
 
-    public void SetPrice
+    public Product(string name, string productid, decimal price, int quantity)
     {
-        return null
-    }
-
-    public float CalculatePrice()
-    {
-
-    }
-
-    public void GetProductID()
-    {
-
-    }
-
-    public void GetName()
-    {
-
-    }
-
-    int GetQuantity
-    {
-        
+        Name = name;
+        ProductID = productid;
+        Price = price;
+        Quantity = quantity;
     }
 }
